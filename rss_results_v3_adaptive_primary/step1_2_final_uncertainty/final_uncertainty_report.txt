@@ -1,0 +1,16 @@
+FINAL V3 UNCERTAINTY ANALYSIS
+==============================================================================
+
+PASS: 96 conditions; 96 x 1000 adaptive trials; 96 x 5000 reference reps.
+
+Overall RSS selection: 0.839729  95% Wilson CI [0.837395, 0.842036]
+Overall oracle agreement: 0.835375  95% Wilson CI [0.833016, 0.837707]
+Mean reference RE: 1.389747  bootstrap 95% CI [1.382332, 1.398196]
+Median reference RE: 1.225325  bootstrap 95% CI [1.213007, 1.258669]
+
+METHODS: Wilson intervals for trial proportions; nonparametric bootstrap over 5,000 reference replicates for fixed risks; paired bootstrap for RE; independent two-sample bootstrap for adaptive excess risk/regret, preserving independence between adaptive evaluation trials and fixed reference replicates.
+
+OUTPUTS:
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_2_final_uncertainty/final_uncertainty_by_condition.csv
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_2_final_uncertainty/final_uncertainty_summary.csv
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_2_final_uncertainty/final_uncertainty_report.txt

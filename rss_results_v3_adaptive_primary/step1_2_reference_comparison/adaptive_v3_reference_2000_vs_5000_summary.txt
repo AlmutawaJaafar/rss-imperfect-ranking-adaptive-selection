@@ -1,0 +1,60 @@
+==============================================================================
+STEP 1.2: 2,000 vs 5,000 REFERENCE COMPARISON
+==============================================================================
+
+Input files
+  2,000 reps: rss_results_v3_adaptive_primary/adaptive_v3_reference_replicates_2000.csv
+  5,000 reps: rss_results_v3_adaptive_primary/adaptive_v3_reference_final_5000.csv
+
+Experiment structure
+  Conditions: 96
+  2,000-replicate file: 2,000 per condition
+  5,000-replicate file: 5,000 per condition
+  Total 2,000-replicate rows: 192,000
+  Total 5,000-replicate rows: 480,000
+
+Oracle-method stability
+  Variance-oracle changes: 6/96
+  MSE-oracle changes: 6/96
+
+Variance-oracle counts
+  2,000 reps: RSS=88, SRS=8
+  5,000 reps: RSS=90, SRS=6
+
+MSE-oracle counts
+  2,000 reps: RSS=88, SRS=8
+  5,000 reps: RSS=90, SRS=6
+
+Maximum absolute relative changes
+  RSS variance: 5.779359%
+  SRS variance: 5.800090%
+  RSS MSE: 5.817455%
+  SRS MSE: 5.799673%
+
+Mean absolute relative changes
+  RSS variance: 2.175912%
+  SRS variance: 1.871682%
+  RSS MSE: 2.172720%
+  SRS MSE: 1.873993%
+
+Conditions with changed oracle conclusions
+  Variance oracle: 6 conditions
+ target_rho mechanism ranking_contamination_mode  epsilon estimator oracle_variance_2000 oracle_variance_5000  variance_gap_2000  variance_gap_5000
+       0.25  gaussian                pre_ranking      0.1      mean                  SRS                  RSS           0.000215          -0.000069
+       0.25   laplace               post_ranking      0.1      mean                  RSS                  SRS          -0.000018           0.000082
+       0.25   laplace                pre_ranking      0.0     huber                  SRS                  RSS           0.000030          -0.000105
+       0.25   laplace                pre_ranking      0.0      mean                  SRS                  RSS           0.000073          -0.000085
+       0.25   laplace                pre_ranking      0.0   trimmed                  SRS                  RSS           0.000033          -0.000110
+       0.25   laplace                pre_ranking      0.1      mean                  RSS                  SRS          -0.000511           0.000312
+  MSE oracle: 6 conditions
+ target_rho mechanism ranking_contamination_mode  epsilon estimator oracle_MSE_2000 oracle_MSE_5000  MSE_gap_2000  MSE_gap_5000
+       0.25  gaussian                pre_ranking      0.1      mean             SRS             RSS      0.000215     -0.000070
+       0.25   laplace               post_ranking      0.1      mean             RSS             SRS     -0.000014      0.000076
+       0.25   laplace                pre_ranking      0.0     huber             SRS             RSS      0.000030     -0.000105
+       0.25   laplace                pre_ranking      0.0      mean             SRS             RSS      0.000073     -0.000085
+       0.25   laplace                pre_ranking      0.0   trimmed             SRS             RSS      0.000033     -0.000110
+       0.25   laplace                pre_ranking      0.1      mean             RSS             SRS     -0.000546      0.000313
+
+Interpretation status
+  At least one condition changes its oracle method.
+  Manuscript conclusions depending on the affected oracle conditions require inspection before being updated.

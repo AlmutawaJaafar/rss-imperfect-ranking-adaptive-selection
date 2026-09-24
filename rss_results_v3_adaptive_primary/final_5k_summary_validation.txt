@@ -1,0 +1,42 @@
+FINAL 5000-REFERENCE SUMMARY VALIDATION
+========================================
+
+PASS: 96 adaptive conditions.
+PASS: 96 x 1000 adaptive trials.
+PASS: 96 x 5000 fixed-strategy reference replicates.
+PASS: reference replicates are exactly 0..4999 per condition.
+PASS: no duplicate reference condition/replicate rows.
+
+5000-REFERENCE ORACLE
+Variance oracle: RSS=90, SRS=6
+MSE oracle: RSS=90, SRS=6
+Mean RE (variance): 1.389747
+Median RE (variance): 1.225325
+Range RE (variance): 0.962190--2.185815
+Mean RE (MSE): 1.389689
+Median RE (MSE): 1.225473
+Range RE (MSE): 0.962687--2.183631
+
+ADAPTIVE 1000-TRIAL RESULTS
+Overall RSS selection fraction: 0.839729
+Trial variance-oracle agreement: 0.835375
+Trial MSE-oracle agreement: 0.835375
+Majority variance-oracle agreement: 90/96 = 0.937500
+Majority MSE-oracle agreement: 90/96 = 0.937500
+
+PRESERVATION AUDIT
+RSS_selection_fraction: max abs difference = 0.000e+00
+pilot_mean_RSS_variance: max abs difference = 0.000e+00
+pilot_mean_SRS_variance: max abs difference = 0.000e+00
+adaptive_variance: max abs difference = 0.000e+00
+adaptive_MSE: max abs difference = 0.000e+00
+adaptive_trials: max abs difference = 0.000e+00
+pilot_reps: max abs difference = 0.000e+00
+pilot_cycles: max abs difference = 0.000e+00
+PASS: all adaptive-run quantities are unchanged.
+
+Backup: /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_before_5k_summary_fix.csv
+Final:  /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_final_5k_summary.csv
+Diagnostics: /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/final_5k_summary_validation.txt
+
+The original adaptive_v3.csv was not overwritten.

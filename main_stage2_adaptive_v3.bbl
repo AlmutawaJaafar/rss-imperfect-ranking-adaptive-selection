@@ -1,0 +1,40 @@
+\begin{thebibliography}{xx}
+
+\harvarditem[Chen et~al.]{Chen, Stasny \harvardand\
+  Wolfe}{2006}{ChenStasnyWolfe2006}
+Chen, H., Stasny, E.~A. \harvardand\ Wolfe, D.~A.  \harvardyearleft
+  2006\harvardyearright , `Unbalanced ranked set sampling for estimating a
+  population proportion', {\em Biometrics} {\bf 62}(1),~150--158.
+
+\harvarditem[Maronna et~al.]{Maronna, Martin, Yohai \harvardand\
+  Salibi{\'a}n-Barrera}{2019}{maronna2019robust}
+Maronna, R.~A., Martin, D.~R., Yohai, V.~J. \harvardand\ Salibi{\'a}n-Barrera,
+  M.  \harvardyearleft 2019\harvardyearright , {\em Robust Statistics: Theory
+  and Methods (with R)}, John Wiley \& Sons.
+
+\harvarditem{McIntyre}{1952}{McIntyre1952}
+McIntyre, G.~A.  \harvardyearleft 1952\harvardyearright , `A method for
+  unbiased selective sampling, using ranked sets', {\em Australian Journal of
+  Agricultural Research} {\bf 3}(4),~385--390.
+
+\harvarditem{Rousseeuw}{1985}{rousseeuw1985multivariate}
+Rousseeuw, P.~J.  \harvardyearleft 1985\harvardyearright , `Multivariate
+  estimation with high breakdown point', {\em Mathematical Statistics and
+  Applications} {\bf B},~283--297.
+
+\harvarditem{Rousseeuw \harvardand\ Van~Driessen}{1999}{rousseeuw1999fast}
+Rousseeuw, P.~J. \harvardand\ Van~Driessen, K.  \harvardyearleft
+  1999\harvardyearright , `A fastalgorithm for the minimum covariance
+  determinant estimator', {\em Technometrics} {\bf 41}(3),~212--223.
+
+\harvarditem{Wolfe}{2010}{Wolfe2010}
+Wolfe, D.~A.  \harvardyearleft 2010\harvardyearright , `Ranked set sampling',
+  {\em Wiley Interdisciplinary Reviews: Computational Statistics} {\bf
+  2}(4),~460--466.
+
+\harvarditem[Zhang et~al.]{Zhang, Song \harvardand\ Dai}{2023}{zhang2023fast}
+Zhang, M., Song, Y. \harvardand\ Dai, W.  \harvardyearleft
+  2023\harvardyearright , `Fast robust location and scatter estimation: A
+  depth-based method', {\em Technometrics} {\bf 1},~14--27.
+
+\end{thebibliography}

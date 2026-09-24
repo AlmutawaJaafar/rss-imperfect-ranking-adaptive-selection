@@ -1,0 +1,1056 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[12pt]{article}
+\usepackage{amsthm}
+
+% Define theorem-like environments
+\newtheorem{definition}{Definition}[section] % numbered by section
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{remark}{Remark}[section]
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{tabularx}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=0}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstarcorollary
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.1in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{1.7in}%
+\addtolength{\topmargin}{-1in}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{agsm}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Ranked Set Sampling for High-Breakdown Robust Estimation:
+\\ Efficiency, Robustness, and Failure Regimes},
+  pdfauthor={Jaafar Almutawa},
+  pdfkeywords={High-Breakdown estimators, Ranked Set Sampling, Statistical Efficiency, Contaminated Data Models},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+
+
+\newcommand{\anon}{1}
+
+%set the key \texttt{anon} to ``0'' to hide the authors and acknowledgements,
+%  producing the required anonymized version. 
+%Set the key \texttt{anon} to ``1'' to produce the manuscript with author details and
+% acknowledgments. 
+
+\begin{document}
+
+
+\def\spacingset#1{\renewcommand{\baselinestretch}%
+{#1}\small\normalsize} \spacingset{1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\if1\anon
+{
+  \title{\bf
+  Robust Ranked Set Sampling under Imperfect Ranking: Efficiency, Robustness, and Failure Regimes
+  }
+  \author{Jaafar Almutawa \thanks{
+I am grateful to Bahrain Polytechnic for providing the facilities and support that enabled this research, and to my colleagues for their encouragement and helpful discussions}\hspace{.2cm}\\
+    Department of Mathematics, Bahrain Polytechnic\\
+    email: jaafar111@yahoo.com
+%    and \\
+%    Author 2 \\
+%    Department of ZZZ, University of WWW
+}
+  \maketitle
+} \fi
+
+\if0\anon
+{
+  \bigskip
+  \bigskip
+  \bigskip
+  \begin{center}
+    {\LARGE\bf Title}
+\end{center}
+  \medskip
+} \fi
+
+\bigskip
+\begin{abstract}
+Ranked Set Sampling (RSS) can improve statistical precision when observations are expensive to measure but inexpensive to rank. Its integration with robust estimation is attractive, but imperfect ranking and multivariate ranking can substantially alter the efficiency--robustness trade-off. We develop a framework that treats ranking quality as a mechanism rather than as a single scalar correlation. In particular, an imperfect-ranking transition matrix is used to characterize how true rank strata are mapped into observed strata. This yields exact design-based expressions for the distribution and variance of balanced RSS means under an explicit ranking model, including conditions under which unbiasedness is preserved. We then extend the framework to robust estimators through influence-function and contamination arguments, while separating claims that are design-theoretic from those that require estimator-specific assumptions. Finally, we propose an adaptive RSS rule that uses a pilot estimate of ranking quality and compares the expected precision of RSS with simple random sampling (SRS), allowing RSS to be rejected when ranking information is insufficient or misleading. The resulting perspective is deliberately non-universal: RSS is beneficial when ranking information is sufficiently informative and robust, but it can provide little gain or even lose efficiency when the ranking mechanism is weak, dimension-dependent, or affected by contamination. A calibrated V3 simulation study then evaluates these gain and failure regimes, with the primary adaptive experiment covering ranking quality, distributional ranking-error mechanisms, contamination placement, and robust estimator choice.
+\end{abstract}
+
+\noindent%
+{\it Keywords:} High-Breakdown estimators, Ranked Set Sampling, Statistical Efficiency, Contaminated Data Models
+\vfill
+
+\newpage
+\spacingset{1.0} % DON'T change the spacing!
+
+\section{Introduction}
+Robust estimation is designed for settings in which a non-negligible fraction of observations may be atypical, corrupted, or otherwise inconsistent with the assumed model. High-breakdown procedures such as the Minimum Covariance Determinant (MCD), S-estimators, Minimum Volume Ellipsoid (MVE), and Stahel--Donoho procedures provide strong protection against contamination, but this protection can come with a loss of statistical efficiency and, for some procedures, substantial computational cost \cite{maronna2019robust,rousseeuw1999fast}.
+
+Ranked Set Sampling (RSS) provides a different way to use information. When a cheap auxiliary assessment can rank units reasonably well before the expensive response is measured, RSS deliberately selects units from different rank strata rather than measuring a simple random sample. Under perfect ranking, balanced RSS can reduce the variance of the sample mean relative to simple random sampling (SRS). The classical RSS literature also shows, however, that imperfect ranking changes the sampling distribution and that its effect depends on the ranking mechanism and the target of inference \cite{McIntyre1952,Wolfe2010,ChenStasnyWolfe2006}.
+
+This observation is central to the present paper. A scalar rank-correlation coefficient is useful as a diagnostic, but it is generally not sufficient to determine the sampling distribution induced by imperfect ranking. Two ranking mechanisms can have similar overall rank correlation while producing different probabilities of confusing adjacent ranks, reversing extreme ranks, or concentrating errors in particular strata. These mechanisms can therefore lead to different efficiency even when their scalar correlation is the same. We consequently formulate imperfect ranking through a rank-transition mechanism and use rank correlation only as a summary diagnostic.
+
+The robust-estimation problem adds a second layer. Ranking is itself a selection mechanism, so a ranking rule that is strongly affected by contamination can preferentially select contaminated observations and thereby alter the effective robustness of the final estimator. Conversely, a ranking rule that is stable under contamination may preserve the practical robustness of the base estimator while still providing useful efficiency gains. The appropriate question is therefore not whether RSS is universally better than SRS, but \emph{when the available ranking information is sufficiently informative and robust for RSS to be preferable}.
+
+The paper develops this viewpoint in four steps. First, we specify an explicit imperfect-ranking model and derive design-based expressions for balanced RSS. Second, we connect the sampling design to robust estimators through influence-function and contamination arguments, distinguishing general consequences of the sampling design from estimator-specific guarantees. Third, we introduce an adaptive decision rule that can fall back to SRS when the estimated ranking information does not justify RSS. Fourth, we use simulation experiments to map the resulting gain and failure regimes across ranking mechanisms, contamination levels, dimensions, and robust estimators.
+
+The main contributions are therefore:
+\begin{enumerate}
+    \item an explicit transition-matrix formulation of imperfect ranking that replaces the unsupported assumption that a single scalar correlation determines RSS efficiency;
+    \item exact finite-sample mean and variance expressions for balanced RSS under stated ranking assumptions, together with clear conditions for the SRS and perfect-ranking limits;
+    \item a conditional framework for combining RSS with robust estimators, with robustness claims stated only under explicit assumptions on the ranking mechanism and the estimator;
+    \item an adaptive RSS--SRS selection principle that recognizes failure regimes rather than assuming that RSS must improve precision; and
+    \item a simulation protocol designed to separate the effects of ranking mechanism, ranking quality, contamination, dimensionality, and estimator choice.
+\end{enumerate}
+
+The paper is organized as follows. Section~\ref{sec:theoretical} reviews the robust estimators considered in the study. Section~\ref{sec:rss} develops the imperfect-ranking model and its consequences for RSS efficiency and robustness. Section~\ref{sec:methodology} describes the adaptive implementation and experimental protocol. Section~\ref{sec:simulation} reports the numerical evidence. Section~\ref{sec:conclusion} summarizes the conclusions and limitations.
+
+\section{High-Breakdown Estimators: Theory and Computational Considerations}
+\label{sec:theoretical}
+
+High-breakdown estimators are indispensable tools in multivariate statistical analysis, particularly when data may be contaminated with outliers. These estimators balance robustness with statistical efficiency and are capable of handling large contamination levels without severe degradation in performance \cite{zhang2023fast}.
+This section presents the theoretical foundations and computational properties of several widely used high-breakdown estimators for location and scatter, providing a foundation for the efficiency improvements proposed in later sections through Ranked Set Sampling (RSS), which aims to reduce the computational burden inherent in subset searches or projection-based diagnostics while leaving robustness implications to estimator-specific analysis.
+
+Let $T_n$ be an estimator based on a sample $X_n = \{x_1, \ldots, x_n\}$. The finite-sample breakdown point of $T_n$
+at $X_n$ is defined as \cite{rousseeuw1999fast}:
+\[
+\epsilon^*_n(T_n, X_n) = \frac{1}{n} \min \left\{ m : \sup_{X_n'} \| T_n(X_n') - T_n(X_n) \| = \infty \right\},
+\]
+where $X_n'$ is obtained by replacing $m$ observations in $X_n$ with arbitrary values. In other words, the breakdown point quantifies the smallest proportion of contaminated data that can cause the estimator to yield arbitrarily large errors. The asymptotic breakdown point is the limit of $\epsilon^*_n$ as $n \to \infty$, representing the estimator’s ultimate robustness against increasing sample size.
+
+For affine equivariant estimators, the following theoretical upper bounds apply \cite{maronna2019robust}:
+\[
+\epsilon^*_n \leq \frac{1}{n} \left\lfloor \frac{n + 1}{2} \right\rfloor \quad \text{(location)}, \quad \epsilon^*_n \leq \frac{1}{n} \left\lfloor \frac{n - p + 1}{2} \right\rfloor \quad \text{(scatter)},
+\]
+where $p$ is the dimension of the data. These bounds establish the fundamental limits of robustness achievable for affine equivariant estimators. The maximum attainable breakdown point of $50\%$ is considered optimal, as it corresponds to the highest proportion of contamination that can be tolerated without complete loss of estimator reliability~\cite{maronna2019robust}.
+
+High-breakdown estimators (with $\epsilon^* \approx 0.5$)
+generally possess the following features \cite{maronna2019robust}:
+\begin{itemize}
+    \item \textbf{Affine Equivariance:} For any affine transformation $(A \mathbf{x} + \mathbf{b})$, these estimators ensure consistent results across transformations, formally expressed as:
+    \[
+    \hat{\bm{\mu}}(A\mathbf{X} + \mathbf{b}) = A\hat{\bm{\mu}}(\mathbf{X}) + \mathbf{b}, \quad \hat{\bm{\Sigma}}(A\mathbf{X} + \mathbf{b}) = A\hat{\bm{\Sigma}}(\mathbf{X})A^\top.
+    \]
+    \item \textbf{Subset or Projection-Based Resistance:} They rely on robust subsets (e.g., MCD, MVE) or projection-based diagnostics (e.g., Stahel-Donoho) to identify and downweight or exclude outliers.
+    \item \textbf{Distribution-Free Robustness:} These estimators do not require specific distributional assumptions on the outlier-generating mechanism for their breakdown point guarantees. However, efficiency results (such as asymptotic relative efficiency) may depend on the underlying distribution and the ranking error model; see Section~3 for a detailed discussion.
+    \item \textbf{Efficiency-Robustness Trade-off:} While achieving high breakdown points, these estimators typically exhibit reduced statistical efficiency under clean data conditions compared to classical maximum likelihood estimators. Efficiency is often measured as asymptotic relative efficiency (ARE) under the multivariate normal model.
+\end{itemize}
+
+Robust multivariate estimation is essential in practice since classical estimators are sensitive to contamination. High-breakdown estimators mitigate this issue by tolerating a significant portion of arbitrary contamination without catastrophic performance degradation. However, their reduced efficiency under ideal conditions and substantial computational demands present opportunities for improvement through intelligent sampling designs such as Ranked Set Sampling. To provide a detailed understanding of the available tools, we now present four foundational high-breakdown estimators, evaluating each in terms of robustness, efficiency, computational practicality, and specific scenarios where they excel.
+
+\subsection{Minimum Covariance Determinant (MCD)}
+The MCD estimator~\cite{rousseeuw1999fast} identifies a subset $H \subset \{1, \ldots, n\}$ of size $h \approx n/2$ that minimizes the determinant of the sample covariance matrix:
+\[
+\det(\hat{\bm{\Sigma}}_H) = \det\left( \frac{1}{h - 1} \sum_{i \in H} (\mathbf{x}_i - \bar{\mathbf{x}}_H)(\mathbf{x}_i - \bar{\mathbf{x}}_H)^\top \right),
+\]
+where $\bar{\mathbf{x}}_H = \frac{1}{h} \sum_{i \in H} \mathbf{x}_i$. The mean and covariance of this optimal subset serve as the raw MCD estimates. The MCD estimator is widely used for robust estimation of multivariate location and scatter.
+
+A reweighting step based on Mahalanobis distances from the raw MCD estimates is typically used to improve efficiency. The FAST-MCD algorithm~\cite{rousseeuw1999fast} accelerates computation, reducing complexity from $O(n^3)$ to $O(n^2p)$ via intelligent subsampling and iterative refinement.
+
+The breakdown point for $h = \left\lfloor \frac{n + p + 1}{2} \right\rfloor$ is
+\[
+\epsilon^*_n = \frac{n - h + 1}{n} \approx \frac{n - p + 1}{2n} \rightarrow 0.5 \quad \text{as } n \to \infty.
+\]
+Thus, MCD can tolerate nearly $50\%$ contamination. Its asymptotic efficiency at the normal model is about $85\%$ after reweighting~\cite{maronna2019robust}. However, MCD requires $n > 2p$ for the estimator to be well-defined, and its efficiency is lower than that of the sample mean/covariance under clean data.
+
+%\textbf{Practical limitations and the value of RSS:}
+In practice, the MCD can quickly become too demanding to compute when the number of variables is large compared to the sample size, even with faster approximations such as FAST-MCD. Its performance also depends on how the subset size $h$ is chosen and on the stability of the reweighting step, which can make results somewhat sensitive. Ranked Set Sampling (RSS) provides a way to narrow down the search more intelligently by ranking observations before selecting subsets, which helps cut down the computational cost while still keeping the estimator robust.
+\subsection{S-Estimators}
+S-estimators~\cite{maronna2019robust} are defined by minimizing a robust scale $\sigma$ subject to a constraint:
+\[
+\min_{\bm{\mu}, \bm{\Sigma}} \sigma \quad \text{subject to} \quad \frac{1}{n} \sum_{i=1}^n \rho\left( \frac{d_i^2}{\sigma^2} \right) = \delta,
+\]
+where $d_i$ is the Mahalanobis distance, $\rho$ is a bounded loss function (e.g., Tukey's biweight), and $\delta$ is a constant for consistency.
+S-estimators achieve breakdown points approaching $0.5$ with suitable $\rho$ and $\delta$. Their efficiency is tunable: with appropriate $\rho$, ARE can exceed $90\%$ under normality~\cite{maronna2019robust}. However, computation is intensive: $O(n^2p^2)$ per iteration.
+
+%\textbf{Practical limitations and RSS integration:}
+High-breakdown estimators often come with practical hurdles: they can be sensitive to tuning choices, and convergence may slow considerably as the sample size or dimensionality increases. By incorporating Ranked Set Sampling (RSS), the search for candidate subsets or projections can be made more focused, reducing the number of evaluations needed in the optimization and easing the overall computational burden.
+
+\subsection{Minimum Volume Ellipsoid (MVE)}
+The MVE estimator~\cite{rousseeuw1985multivariate} finds the smallest ellipsoid (minimum determinant of $\bm{\Sigma}$) containing at least $h$ data points:
+\[
+\#\left\{ i : (\mathbf{x}_i - \bm{\mu})^\top \bm{\Sigma}^{-1} (\mathbf{x}_i - \bm{\mu}) \leq c \right\} \geq h
+\]
+with $c$ chosen for consistency.
+Asymptotically, the breakdown point approaches $0.5$. However, MVE has low efficiency (typically $<50\%$ at normality) and is computationally more demanding than MCD ($O(n^3)$ for naive search).
+
+%\textbf{Practical limitations and RSS integration:}
+Despite their strong robustness, high-breakdown estimators often suffer from heavy computational costs, which limits their use in large-scale applications. Ranked Set Sampling (RSS) offers a way forward by guiding the selection of candidate ellipsoid subsets in a more efficient manner, thereby reducing the search space and making these estimators more practical for high-dimensional or large-sample problems.
+\subsection{Stahel-Donoho Estimator}
+The Stahel-Donoho estimator~\cite{maronna2019robust} quantifies outlyingness as
+\[
+o(\mathbf{x}_i) = \sup_{\|\mathbf{u}\| = 1} \frac{|\mathbf{u}^\top \mathbf{x}_i - \text{med}(\mathbf{u}^\top X)|}{\text{MAD}(\mathbf{u}^\top X)},
+\]
+using the direction $\mathbf{u}$ where the standardized deviation is maximized. In practice, random projections approximate the supremum, yielding $O(n^2p)$ complexity.
+Breakdown point approaches $0.5$ with enough projections. Efficiency is moderate and can be improved with reweighting.
+
+%\textbf{Practical limitations and RSS integration:}
+Projection-based estimators often depend heavily on both the number and the choice of projection directions, and their computational cost can quickly escalate as $n$ and $p$ grow. By integrating Ranked Set Sampling (RSS), projection directions or initial subsets for scale estimation can be selected in a more targeted way, improving efficiency while leaving robustness implications to estimator-specific analysis.
+
+\begin{table}[H]
+\centering
+\caption{Comparison of High-Breakdown Estimators}
+\label{tab:estimator_comparison}
+\begin{tabularx}{\textwidth}{lXXXX}
+\toprule
+\textbf{Estimator} & \textbf{Breakdown Point} & \textbf{Efficiency (Normal)} & \textbf{Computational Cost} & \textbf{RSS Integration Potential} \\
+\midrule
+MCD           & $\approx 0.5$ & Moderate ($\sim$85\%)  & $O(n^2p)$ (FAST-MCD)      & Subset selection            \\
+S-Estimator   & $\approx 0.5$ & High ($>90\%$) (tunable) & $O(n^2p^2)$ per iteration & Subset/projection selection \\
+MVE           & $\approx 0.5$ & Low ($<50\%$)           & $O(n^3)$                  & Subset selection            \\
+Stahel-Donoho & $\approx 0.5$ & Moderate                & $O(n^2p)$ (random proj.)  & Projection/subset selection \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In summary, high-breakdown estimators play a critical role in ensuring robustness against data contamination, each offering unique strengths and trade-offs. Their combination with efficient data collection methods---as detailed in subsequent sections---forms a promising strategy for enhancing both robustness and statistical performance in practical applications.
+
+\section{Ranked Set Sampling under Imperfect Ranking}
+\label{sec:rss}
+
+Ranked Set Sampling (RSS) exploits inexpensive ranking information to select a measured sample that is deliberately spread across rank strata. Its statistical benefit depends on the quality of that ranking. In the present framework, ranking quality is represented by a transition mechanism between true and observed ranks rather than by a single correlation coefficient.
+
+\subsection{Balanced RSS and an imperfect-ranking model}
+Consider a continuous scalar variable $X$ with distribution function $F$, mean $\mu$, and variance $\sigma^2<\infty$. In a balanced RSS cycle, $m$ independent sets of size $m$ are ranked and one unit is selected from each observed rank $s\in\{1,\ldots,m\}$. After $k$ independent cycles, the measured sample size is $n=km$.
+
+Let $R\in\{1,\ldots,m\}$ denote the true rank of a unit within its set and let $\widetilde R$ denote its observed rank. We describe imperfect ranking by the transition matrix
+\begin{equation}
+\label{eq:transition_matrix}
+P_{rs}=\Pr(\widetilde R=s\mid R=r), \qquad r,s=1,\ldots,m.
+\end{equation}
+Each row of $P$ sums to one. The matrix contains substantially more information than a scalar rank correlation: it records which true strata are confused with which observed strata.
+
+For a fixed observed rank $s$, let
+\begin{equation}
+q_{r\mid s}=\Pr(R=r\mid \widetilde R=s)
+=\frac{P_{rs}}{\sum_{u=1}^m P_{us}},
+\label{eq:posterior_rank_weights}
+\end{equation}
+whenever the denominator is positive. If $X_{(r)}$ denotes the $r$th order statistic from a set of size $m$, the selected observation at observed rank $s$ has density
+\begin{equation}
+\label{eq:selected_density}
+ g_s(x)=\sum_{r=1}^m q_{r\mid s} f_{(r)}(x),
+\end{equation}
+where $f_{(r)}$ is the density of $X_{(r)}$. Equation~\eqref{eq:selected_density} makes explicit how ranking errors change the distribution actually sampled.
+
+\begin{proposition}[Balanced RSS under a doubly stochastic ranking mechanism]
+\label{prop:doubly_stochastic}
+Suppose $P$ is doubly stochastic, so that both its row and column sums equal one. Then balanced RSS has the following properties.
+\begin{enumerate}
+    \item The average selected distribution is the population distribution:
+    \[
+    \frac{1}{m}\sum_{s=1}^m g_s(x)=f(x).
+    \]
+    Consequently, the balanced RSS sample mean is unbiased for $\mu$.
+    \item If the cycles are independent, the exact variance of the RSS sample mean is
+    \begin{equation}
+    \label{eq:rss_variance_transition}
+    \operatorname{Var}(\bar X_{RSS})
+    =\frac{1}{km^2}\sum_{s=1}^m \operatorname{Var}_{g_s}(X).
+    \end{equation}
+    \item If $P_{rs}=1/m$ for all $r,s$, then $g_s=f$ for every $s$ and balanced RSS reduces, in distribution, to SRS of size $n$.
+    \item If $P=I_m$, then $g_s=f_{(s)}$ and the usual perfectly ranked balanced RSS design is recovered.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For a doubly stochastic matrix, $\sum_{s=1}^m P_{rs}=\sum_{s=1}^m q_{r\mid s}=1$ because each column sum is one. Hence
+\[
+\frac{1}{m}\sum_{s=1}^m g_s(x)
+=\frac{1}{m}\sum_{r=1}^m f_{(r)}(x)
+=f(x),
+\]
+where the last equality is the standard order-statistic identity. The variance expression follows by independence of the $km$ selected observations grouped by observed rank. Uniform $P$ gives $g_s=f$, while $P=I_m$ gives $g_s=f_{(s)}$.
+\end{proof}
+
+The doubly stochastic condition is sufficient, not necessary, for unbiasedness. It is imposed here because it gives a transparent design-level condition and includes the two important limiting cases: perfect ranking and completely random ranking. More general ranking mechanisms can be handled directly through the weights in Eq.~\eqref{eq:posterior_rank_weights}, but unbiasedness and efficiency must then be checked for the particular mechanism.
+
+\subsection{Efficiency and ranking quality}
+For the balanced design, define
+\begin{equation}
+\label{eq:re_transition}
+\operatorname{RE}(P)
+=\frac{\operatorname{Var}(\bar X_{SRS})}
+{\operatorname{Var}(\bar X_{RSS})}
+=\frac{m\sigma^2}{\sum_{s=1}^m \operatorname{Var}_{g_s}(X)},
+\end{equation}
+where $\operatorname{Var}(\bar X_{SRS})=\sigma^2/(km)$. This is an exact finite-sample expression under Proposition~\ref{prop:doubly_stochastic}. It shows directly why a scalar correlation cannot, in general, determine RSS efficiency: the right-hand side depends on the entire collection of selected-stratum distributions $\{g_s\}$.
+
+A scalar rank-correlation measure remains useful for reporting ranking quality. We use
+\begin{equation}
+\label{eq:spearman_summary}
+\rho_R=\operatorname{Corr}(R,\widetilde R),
+\end{equation}
+as a summary statistic, not as a sufficient parameter for efficiency. In particular, the same value of $\rho_R$ can correspond to different transition matrices and therefore different values of $\operatorname{RE}(P)$.
+
+\begin{remark}[Limiting cases]
+\label{rem:ranking_limits}
+Perfect ranking corresponds to $P=I_m$ and gives the classical balanced RSS variance. Random ranking corresponds to $P_{rs}=1/m$ and gives $\operatorname{RE}(P)=1$. Intermediate mechanisms need not produce an efficiency curve determined uniquely by $\rho_R$. An empirical relationship between $\rho_R$ and efficiency is therefore a property of a specified ranking-error model, not a distribution-free theorem.
+\end{remark}
+
+\subsection{Multivariate RSS}
+Let $\mathbf X\in\mathbb R^p$. A multivariate RSS design requires a scalar ranking score $R(\mathbf x)$, such as a marginal score, a robust distance, or a projection-based outlyingness measure. The ranking score induces a partition of each set into ordered strata, but the resulting strata need not correspond to a natural order for every component of $\mathbf X$.
+
+For a scalar target $a^\top\mathbf X$, the appropriate efficiency quantity is
+\begin{equation}
+\label{eq:multivariate_target}
+\operatorname{RE}_a(P)=
+\frac{\operatorname{Var}(a^\top\bar{\mathbf X}_{SRS})}
+{\operatorname{Var}(a^\top\bar{\mathbf X}_{RSS})}.
+\end{equation}
+There is no general guarantee that $\operatorname{RE}_a(P)\geq1$ for every direction $a$, ranking score, dimension $p$, or contamination configuration. This is precisely the regime that the simulations investigate.
+
+A robust multivariate ranking should be specified independently of the final estimator. Examples include robust Mahalanobis distance, projection-based outlyingness, and depth scores. For a robust Mahalanobis score, the centered form
+\[
+R(\mathbf x)=(\mathbf x-\hat{\boldsymbol\mu})^\top
+\hat{\boldsymbol\Sigma}^{-1}(\mathbf x-\hat{\boldsymbol\mu})
+\]
+should be used. Its usefulness depends on how reliably the pilot estimates $\hat{\boldsymbol\mu}$ and $\hat{\boldsymbol\Sigma}$ can be obtained in the relevant dimension and contamination regime.
+
+\subsection{Robust estimation after RSS selection}
+Let $T$ be a robust estimator computed from the measured RSS observations. The key distinction is between (i) robustness of $T$ conditional on the selected sample and (ii) robustness of the complete selection-plus-estimation procedure. A robust estimator cannot by itself guarantee the latter if the ranking mechanism systematically directs contaminated observations into the measured sample.
+
+We therefore define the ranking mechanism to be \emph{selection-robust at contamination level $\epsilon$} if, under the specified contamination model, the distribution of selected observations remains in a class for which the breakdown or bias bound of $T$ is valid. This is a model-dependent condition and must not be replaced by the statement that the ranking function merely has a high breakdown point.
+
+\begin{proposition}[Conditional robustness transfer]
+\label{prop:conditional_robustness}
+Let $T_n$ have finite-sample breakdown point $\epsilon_n^*(T)$ on a class $\mathcal F$ of samples. Suppose the complete RSS selection mechanism, including its ranking rule, maps every contaminated sample with at most $\lfloor n\epsilon\rfloor$ replacements into a selected sample belonging to the admissible class for $T_n$ whenever $\epsilon<\epsilon_n^*(T)$. Then the RSS estimator $T_{RSS}$ does not break down on that class for contamination levels below $\epsilon_n^*(T)$.
+\end{proposition}
+
+\begin{proof}
+Under the stated selection condition, the selected sample remains within the class on which $T_n$ is bounded. The definition of finite-sample breakdown therefore implies that $T_{RSS}$ remains bounded for the specified contamination levels. No stronger unconditional breakdown claim follows without an explicit condition guaranteeing the stated selection property.
+\end{proof}
+
+Proposition~\ref{prop:conditional_robustness} is intentionally conditional. It separates a property of the base robust estimator from the additional requirement imposed by the ranking stage. In particular, statements such as ``RSS preserves the breakdown point'' are justified only after the selection-robustness condition has been established for the ranking mechanism and contamination model under consideration.
+
+\subsection{Influence-function perspective}
+For a robust estimator admitting an asymptotic linear representation under an appropriate sampling design,
+\[
+\sqrt n\{T_n-\theta\}=\frac{1}{\sqrt n}\sum_{i=1}^n\operatorname{IF}(X_i;T,F)+o_p(1).
+\]
+Under RSS, the summands are not generally identically distributed because their distributions depend on the selected rank stratum. Consequently, the asymptotic variance is determined by the selected-stratum laws, not simply by replacing $F$ with an order-statistic density in an i.i.d. influence-function formula. For balanced RSS with independent cycles, a design-specific variance expression can be obtained from the covariance of the influence-function contributions in each selected stratum. A universal inequality comparing this variance with the SRS variance requires additional assumptions and is not asserted here.
+
+This distinction is important for nonlinear estimators such as MCD, S-estimators, MVE, and Stahel--Donoho procedures. Their finite-sample behavior depends on the geometry of the selected sample and on the particular implementation. Accordingly, the present framework treats efficiency gains for these estimators as empirical quantities unless a separate estimator-specific theorem is available.
+
+\subsection{Adaptive RSS--SRS decision rule}
+The preceding results suggest an operational principle: RSS should be used when ranking information is sufficiently informative and robust, and SRS should be retained otherwise. Let $\widehat V_{RSS}$ and $\widehat V_{SRS}$ be pilot estimates of the variance (or MSE, if contamination is part of the target criterion) of the final estimator under the two designs. A simple decision rule is
+\begin{equation}
+\label{eq:adaptive_rule}
+D^*=\begin{cases}
+\mathrm{RSS}, & \widehat V_{RSS}+\lambda\widehat C_{RSS}
+<\widehat V_{SRS}+\lambda\widehat C_{SRS},\\
+\mathrm{SRS}, & \text{otherwise},
+\end{cases}
+\end{equation}
+where $\widehat C$ measures computational or measurement cost and $\lambda\geq0$ specifies the relative cost weight. When only statistical precision matters, set $\lambda=0$. A pilot can also report $\rho_R$ and the estimated transition matrix $\widehat P$; these quantities are diagnostics, whereas Eq.~\eqref{eq:adaptive_rule} is the final decision criterion.
+
+The adaptive formulation changes the scientific question from ``How much does RSS improve efficiency?'' to ``Under which ranking and contamination regimes does RSS improve efficiency enough to justify its use?'' This question is directly testable and accommodates the possibility of negative or negligible RSS gains.
+
+\section{Methodology and Implementation}
+\label{sec:methodology}
+
+This section specifies the implementation used to evaluate the framework. The experimental unit is a complete RSS cycle containing $m$ sets and $m$ measured observations in balanced designs. The same total number of measured observations is used for RSS and SRS comparisons. Ranking cost is reported separately from estimation cost so that statistical efficiency is not confused with computational speed.
+
+\subsection{Ranking mechanisms}
+The primary V3 experiment uses two explicit imperfect-ranking mechanisms. For a set with true rank vector $R=(R_1,\ldots,R_m)$, the observed ordering is generated from perturbed rank scores
+\[
+S_i = R_i + \tau Z_i,
+\]
+where $Z_i\sim N(0,1)$ for the Gaussian mechanism and $Z_i\sim \mathrm{Laplace}(0,1)$ for the Laplace mechanism. The scale $\tau$ is calibrated separately for each target ranking quality so that the expected rank correlation is approximately
+\[
+\rho_R\in\{0.25,0.50,0.75,0.90\}.
+\]
+Calibration uses 20,000 independent trials for each mechanism--target pair. The realized rank correlation is always computed from the generated ranks and is not treated as exactly equal to the target value.
+
+The contamination experiments distinguish two scientifically different placements. Under \emph{post-ranking} contamination, ranking is performed on the uncontaminated responses and contamination is introduced afterward, so the ranking mechanism itself is unchanged. Under \emph{pre-ranking} contamination, the contaminated responses are present during ranking, so contamination can alter both the selection mechanism and the measured sample. The primary V3 experiment uses $\epsilon\in\{0,0.10\}$ and an outlier magnitude of eight standard normal units.
+
+\subsection{Robust ranking and estimators}
+The primary adaptive V3 experiment is univariate and therefore does not use the multivariate robust Mahalanobis ranking rules listed in the exploratory sections of the manuscript. It compares the sample mean, a 10\% trimmed mean, and a Huber M-estimator with tuning constant $c_H=1.345$. These choices isolate the interaction between ranking quality, contamination, and estimator robustness before extending the study to higher-dimensional estimators.
+
+The same estimator definition is used for the RSS and SRS samples within each condition. No information from the independent fixed-strategy reference experiment is available to the adaptive decision; the reference experiment is used only after the adaptive run to quantify oracle agreement and regret.
+
+\subsection{Adaptive selection}
+Algorithm~\ref{alg:adaptive_rss} summarizes the proposed adaptive procedure.
+
+\begin{algorithm}[H]
+\caption{Adaptive RSS--SRS Robust Estimation}
+\label{alg:adaptive_rss}
+\begin{algorithmic}[1]
+\State \textbf{Input:} set size $m$, estimator $T$, ranking rule $R$, pilot budget, and cost weight $\lambda$
+\State Draw a pilot sample and obtain ranking diagnostics $(\widehat P,\widehat\rho_R)$
+\State Estimate the precision (or MSE) and cost of RSS and SRS on the pilot
+\If{$\widehat V_{RSS}+\lambda\widehat C_{RSS}<\widehat V_{SRS}+\lambda\widehat C_{SRS}$}
+    \State Use balanced RSS for the measurement stage
+\Else
+    \State Use SRS for the measurement stage
+\EndIf
+\State Apply $T$ to the resulting measured sample
+\State \textbf{Return:} estimate, ranking diagnostics, and design decision
+\end{algorithmic}
+\end{algorithm}
+
+For the primary V3 experiment, the decision criterion is the pilot variance alone, i.e.
+$\lambda=0$, and the pilot does not use the known simulation truth to estimate MSE.
+Each adaptive trial first generates an independent pilot with 200 pilot replications
+and 20 RSS cycles per pilot replication, chooses RSS or SRS from the two pilot
+variance estimates, and then evaluates that decision on an independent dataset.
+The adaptive evaluation uses 1,000 such decision trials for each condition.
+An independent fixed-strategy reference experiment with 5,000 replications per
+condition is used only ex post to define the variance and MSE oracle designs.
+
+The rule is not claimed to be uniformly optimal. Its role in the current study is to quantify how often a finite pilot recovers the better fixed design and how much performance is lost when the pilot selects the other design. A cost-aware rule and an MSE-aware adaptive rule remain future extensions.
+
+\subsection{Evaluation criteria}
+For a scalar parameter, relative variance efficiency is
+\[
+\operatorname{RE}_{V}=\frac{\operatorname{Var}(\widehat\theta_{SRS})}
+{\operatorname{Var}(\widehat\theta_{RSS})}.
+\]
+Under contamination, we additionally report relative MSE,
+\[
+\operatorname{RE}_{M}=\frac{\operatorname{MSE}(\widehat\theta_{SRS})}
+{\operatorname{MSE}(\widehat\theta_{RSS})},
+\]
+because variance and MSE need not agree when bias is present. Values above one favor RSS, values below one favor SRS, and values near one indicate little practical difference.
+
+For each Monte Carlo configuration, the study reports fixed-strategy variance and MSE references together with the adaptive selected-design variance and MSE. In the primary V3 adaptive rule, the pilot minimizes sampling variance; MSE is evaluated only ex post. The present results therefore do not establish an MSE-optimal adaptive rule under contamination. Monte Carlo uncertainty for the final reported metrics is reported separately using Wilson intervals for trial-level proportions and bootstrap intervals for the fixed-strategy risk summaries. Breakdown is not inferred from the finite grid of contamination percentages; a breakdown claim requires a separate contamination experiment that searches for divergence or instability under the stated contamination model.
+
+\subsection{Computational accounting}
+The total cost is conceptually decomposed as
+\[
+C_{\mathrm{total}}=C_{\mathrm{ranking}}+C_{\mathrm{sorting}}+C_{\mathrm{estimation}}.
+\]
+The V3 adaptive experiment does not report wall-clock timing, so no computational-speed conclusion is drawn from the present results. A submission-ready computational study must benchmark per-estimate cost for RSS and SRS under identical hardware and software, and should distinguish ranking/sorting cost from estimator cost and from any precision-matched Monte Carlo savings.
+
+\section{Simulation Study}
+\label{sec:simulation}
+The primary numerical evidence is a calibrated adaptive V3 experiment designed to test the proposed RSS--SRS decision rule under controlled ranking quality and contamination placement. The experiment is deliberately narrower than the full theoretical framework: it is univariate, uses $m=5$, and compares the mean, 10\% trimmed mean, and Huber M-estimator. Exploratory multivariate and benchmark-data studies retained later in the manuscript are treated as preliminary until they are rerun under the same protocol.
+
+\subsection{Primary V3 adaptive experiment}
+\label{subsec:v3_adaptive}
+Each condition uses $m=5$ sets per cycle, 100 cycles, and hence $n=500$ measured observations. The ranking targets are $\rho_R\in\{0.25,0.50,0.75,0.90\}$; the ranking-error mechanism is Gaussian or Laplace; contamination is absent or has fraction $\epsilon=0.10$; and contamination is placed either before or after ranking. The three estimators are the sample mean, 10\% trimmed mean, and Huber M-estimator. This produces $4\times2\times2\times2\times3=96$ adaptive conditions.
+
+The ranking scales are calibrated using 20,000 trials per target--mechanism pair. Table~\ref{tab:v3_calibration} shows that the achieved calibration targets are accurate to numerical precision at $m=5$.
+
+\begin{table}[htbp]
+\centering
+\caption{V3 ranking-scale calibration at $m=5$ (20,000 calibration trials per row).}
+\label{tab:v3_calibration}
+\begin{tabular}{ccccc}
+\toprule
+Mechanism & Target $\rho_R$ & Calibrated scale $\tau$ & Pilot expected $\rho_R$ & Absolute error \\
+\midrule
+Gaussian & 0.25 & 5.56036 & 0.24999 & $1.0\times10^{-5}$ \\
+Laplace  & 0.25 & 4.76666 & 0.25000 & $<10^{-12}$ \\
+Gaussian & 0.50 & 2.50672 & 0.50000 & $<10^{-12}$ \\
+Laplace  & 0.50 & 2.07187 & 0.50000 & $<10^{-12}$ \\
+Gaussian & 0.75 & 1.33957 & 0.75000 & $<10^{-12}$ \\
+Laplace  & 0.75 & 1.03538 & 0.75000 & $<10^{-12}$ \\
+Gaussian & 0.90 & 0.795978 & 0.90000 & $<10^{-12}$ \\
+Laplace  & 0.90 & 0.579369 & 0.900005 & $5.0\times10^{-6}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For every condition, the adaptive pilot uses 30 independent pilot replications with 20 cycles per replication. The final adaptive evaluation contains 200 independent pilot--decision--evaluation trials. The fixed-strategy reference risks are estimated independently from 5,000 replications per condition. Importantly, the adaptive decision uses only the pilot variance estimates; the fixed-strategy reference risks are used only for ex-post diagnostics.
+
+\subsubsection{Fixed-strategy reference risks}
+The independent reference experiment provides a stable benchmark against which the adaptive decisions can be interpreted. Define
+\[
+\mathrm{RE}_{V,\mathrm{ref}}=\frac{V_{SRS}}{V_{RSS}},
+\qquad
+\mathrm{RE}_{M,\mathrm{ref}}=\frac{MSE_{SRS}}{MSE_{RSS}}.
+\]
+Values above one indicate that RSS has lower fixed-strategy risk, while values below one indicate the opposite. Averaged over the 24 conditions at each target $\rho_R$, the mean reference variance-efficiency ratios increase from 1.028 at $\rho_R=0.25$ to 1.170, 1.477, and 1.884 at $\rho_R=0.50,0.75,0.90$, respectively. The reference efficiency remains heterogeneous across mechanism, contamination placement, and estimator. Thus, even in this controlled study, ranking quality does not induce a universal efficiency guarantee.
+
+\begin{table}[htbp]
+\centering
+\caption{Independent V3 fixed-strategy reference risks summarized by target ranking quality (5,000 reference replications per condition).}
+\label{tab:v3_reference_summary}
+\begin{tabular}{cc}
+\toprule
+Target $\rho_R$ & Mean RE$_V$ \\
+\midrule
+0.25 & 1.028 \\
+0.50 & 1.170 \\
+0.75 & 1.477 \\
+0.90 & 1.884 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Across all 96 conditions, the fixed-strategy oracle is RSS in 90 conditions and SRS in 6 conditions, for both variance and MSE because the same oracle method is obtained under the two reference criteria. The six SRS-oracle conditions are all in the weakest ranking regime ($\rho_R=0.25$), demonstrating why the fallback option is necessary.
+
+\subsubsection{Adaptive selection performance}
+The primary adaptive outcome is the fraction of the 200 pilot-driven trials in which RSS is selected. Table~\ref{tab:v3_adaptive_by_rho} aggregates the 24 conditions at each target ranking quality. The ex-post agreement rate with the fixed-strategy variance oracle is the mean fraction of adaptive trials selecting the oracle design. The table reports the final 5,000-replicate oracle classification; relative-regret entries are omitted here because the earlier table values were based on the 2,000-replicate reference and have not been silently reused.
+
+\begin{table}[htbp]
+\centering
+\caption{Adaptive V3 selection and oracle agreement, averaged over the 24 conditions at each target ranking quality.}
+\label{tab:v3_adaptive_by_rho}
+\begin{tabular}{cccc}
+\toprule
+Target $\rho_R$ & RSS selection fraction & Oracle is RSS & Oracle-agreement fraction \\
+\midrule
+0.25 & 0.533 & 0.750 & 0.523 \\
+0.50 & 0.656 & 0.958 & 0.658 \\
+0.75 & 0.823 & 1.000 & 0.823 \\
+0.90 & 0.913 & 1.000 & 0.913 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The aggregate selection fraction rises systematically with ranking quality, from 0.533 at $\rho_R=0.25$ to 0.913 at $\rho_R=0.90$. The overall trial-level agreement with the fixed-strategy variance oracle is 73.8\% across all 96 conditions. At the condition level, using the majority adaptive choice (RSS selected in at least half of the 200 trials) gives the same oracle design in 87 of 96 conditions (90.6\%). These two summaries answer different questions: the first measures variability of the finite-pilot decision over repeated pilots, whereas the second records whether the majority decision for a condition matches its ex-post reference oracle.
+
+The pilot is deliberately conservative in the weakest ranking regime. At $\rho_R=0.25$, the mean RSS selection fraction is only 0.533, reflecting the near-tie between the two fixed-strategy risks in many conditions. Under $\epsilon=0.10$, the overall RSS selection fraction decreases from 0.771 in the clean conditions to 0.691, showing that contamination can reduce the evidence in favor of RSS even when RSS remains the fixed-strategy oracle in most conditions. Because the adaptive rule is variance-based, these findings should not be interpreted as evidence for an MSE-optimal adaptive rule under contamination.
+
+Negative values of adaptive excess risk in individual rows are not interpreted as evidence that the adaptive procedure systematically beats the oracle. The adaptive risks use only 200 evaluation trials, whereas the oracle references use 5,000 fixed-strategy replications; sampling variability can therefore make an adaptive estimate fall below the reference estimate. Final submission tables should attach uncertainty intervals before making row-level comparisons.
+
+\subsubsection{Matched-mechanism comparison}
+A separate paired V3 experiment was used to test the central theoretical claim that a scalar rank correlation does not uniquely determine efficiency. Gaussian and Laplace ranking mechanisms were simulated at closely matched realized rank correlations, using the same paired random seeds. Across $m=5$, 100 cycles, 500 measured observations, and four estimators (mean, trimmed, Huber, and Tukey), the realized correlations differ by at most 0.0039 at the four target levels. The mean variance-efficiency difference (Gaussian minus Laplace) is -0.052 at $\rho_R=0.25$, +0.151 at $0.50$, +0.143 at $0.75$, and -0.053 at $0.90$.
+
+The bootstrap intervals show that the evidence for a mechanism effect is strongest around $\rho_R=0.50$: one of four estimator-specific variance contrasts has a 95\% bootstrap interval excluding zero, and three of four MSE contrasts exclude zero. At $\rho_R=0.25$, $0.75$, and $0.90$, the estimator-specific intervals all cross zero. The result therefore supports mechanism dependence as a measurable phenomenon without supporting a universal direction or magnitude of the effect.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired Gaussian-versus-Laplace comparison at matched ranking quality. Differences are Gaussian minus Laplace in relative efficiency.}
+\label{tab:v3_paired_mechanism}
+\begin{tabular}{ccccc}
+\toprule
+Target $\rho_R$ & Matched realized correlations & Mean $\Delta$RE$_V$ & Range of $\Delta$RE$_V$ & Variance CIs excluding 0 \\
+\midrule
+0.25 & 0.24696 / 0.24929 & -0.052 & [-0.057,-0.043] & 0/4 \\
+0.50 & 0.50167 / 0.49930 & +0.151 & [0.146,0.159] & 1/4 \\
+0.75 & 0.75266 / 0.74880 & +0.143 & [0.139,0.151] & 0/4 \\
+0.90 & 0.90041 / 0.90096 & -0.053 & [-0.070,-0.039] & 0/4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The V3 evidence therefore supports the paper's main design-level point in a qualified form: the same approximate scalar ranking correlation can coexist with different empirical efficiency, but the current experiment is not sufficient to map the full transition-matrix space or to establish a universal ordering among mechanisms.
+
+\subsubsection{Scope of the current numerical evidence}
+The V3 experiment is now the primary confirmatory simulation in the manuscript, but several planned elements remain incomplete. In particular, the current adaptive study does not yet include perfect-ranking and random-ranking controls, larger pilot budgets, a cost-aware decision rule, an MSE-aware pilot criterion, or submission-quality Monte Carlo confidence intervals for the adaptive performance metrics. The later multivariate and benchmark-data sections are therefore retained as exploratory material and should not be presented as final evidence until they are rerun under the revised protocol.
+
+\subsection{Multivariate Simulation Study}
+\label{subsec:multivariate_simulation}
+
+This section presents multivariate RSS simulations across dimensions $p \in \{4, 10, 50\}$, using 1000 Monte Carlo replications per configuration. The ranking function is the robust Mahalanobis distance based on the trimmed covariance matrix (Section~\ref{sec:methodology}). Performance was evaluated across contamination levels, ranking qualities, and sample and set sizes, focusing on relative efficiency (RE), design effects, and the impact of dimensionality on RSS gains.
+
+\subsubsection{Ranking Quality Across Dimensions}
+
+Tables~\ref{tab:mv_rank_eff_p4}--\ref{tab:mv_rank_eff_p50} report the relationship between ranking quality $\rho$ and empirical relative efficiency for $p = 4$, $p = 10$, and $p = 50$, respectively. Unlike the univariate setting (the V3 reference results in Table~\ref{tab:v3_reference_summary}), where RSS achieved RE values up to 2.6, the multivariate empirical RE values cluster near 1.0 across all dimensions and ranking qualities. This reflects the difficulty of achieving effective multivariate ranking: depth-based ranking in $\mathbb{R}^p$ captures less distributional information per observation than univariate ranking, reducing the variance-reduction benefit of RSS. The tables illustrate why a universal multivariate bound should not be assumed: the observed RE values can fall below one even under high nominal ranking quality. The revised analysis therefore treats multivariate efficiency as estimator- and ranking-mechanism-dependent.
+
+\begin{table}[htbp]
+\centering
+\caption{Ranking Quality vs.\ Statistical Efficiency ($p = 4$, 1000 replications)}
+\label{tab:mv_rank_eff_p4}
+\begin{tabular}{cccc}
+\toprule
+$\rho$ & Emp.\ RE & Theo.\ RE & Abs.\ Error \\
+\midrule
+0.30 & 0.929 & 1.180 & 0.251 \\
+0.50 & 0.985 & 1.500 & 0.515 \\
+0.70 & 0.945 & 1.980 & 1.035 \\
+0.90 & 0.948 & 2.620 & 1.672 \\
+1.00 & 0.969 & 3.000 & 2.031 \\
+\midrule
+\multicolumn{3}{l}{Mean Absolute Error} & 1.101 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Ranking Quality vs.\ Statistical Efficiency ($p = 10$, 1000 replications)}
+\label{tab:mv_rank_eff_p10}
+\begin{tabular}{cccc}
+\toprule
+$\rho$ & Emp.\ RE & Theo.\ RE & Abs.\ Error \\
+\midrule
+0.30 & 0.911 & 1.180 & 0.269 \\
+0.50 & 0.949 & 1.500 & 0.551 \\
+0.70 & 0.926 & 1.980 & 1.054 \\
+0.90 & 0.930 & 2.620 & 1.690 \\
+1.00 & 0.968 & 3.000 & 2.032 \\
+\midrule
+\multicolumn{3}{l}{Mean Absolute Error} & 1.119 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Ranking Quality vs.\ Statistical Efficiency ($p = 50$, 1000 replications)}
+\label{tab:mv_rank_eff_p50}
+\begin{tabular}{cccc}
+\toprule
+$\rho$ & Emp.\ RE & Theo.\ RE & Abs.\ Error \\
+\midrule
+0.30 & 0.946 & 1.180 & 0.234 \\
+0.50 & 0.924 & 1.500 & 0.576 \\
+0.70 & 0.942 & 1.980 & 1.038 \\
+0.90 & 0.936 & 2.620 & 1.684 \\
+1.00 & 0.931 & 3.000 & 2.069 \\
+\midrule
+\multicolumn{3}{l}{Mean Absolute Error} & 1.120 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%==============paragraph
+
+\subsubsection{Estimator Performance Under Contamination}
+
+Tables~\ref{tab:contam_p4_new}--\ref{tab:contam_p50_new} report relative efficiency for four estimators under increasing contamination at $p = 4$, $p = 10$, and $p = 50$. The results reveal a nuanced pattern: RSS gains are estimator- and contamination-dependent rather than universal.
+
+At $p = 4$ (Table~\ref{tab:contam_p4_new}), the trimmed mean benefits most from RSS, reaching RE $= 1.317$ at 20\% contamination. Huber~M shows modest gains at 30\% contamination (RE $= 1.089$), while the sample mean and Fast~MCD remain near RE $= 1.0$. At $p = 10$ (Table~\ref{tab:contam_p10_new}), gains are smaller but still present: the trimmed mean achieves RE $= 1.104$ at 20\% contamination, and Fast~MCD shows a notable gain (RE $= 1.347$) at 10\% contamination. At $p = 50$ (Table~\ref{tab:contam_p50_new}), the trimmed mean continues to benefit from RSS (RE $= 1.284$ at 20\%), and Fast~MCD shows consistent gains across contamination levels (RE $= 1.05$--$1.15$). These baseline results suggest that some estimator--contamination combinations benefit from RSS while others do not. The redesigned experiments will test whether these differences are explained by the ranking mechanism and its realized quality.
+
+\begin{table}[htbp]
+\centering
+\caption{Estimator Performance Under Contamination ($p = 4$, 1000 replications)}
+\label{tab:contam_p4_new}
+\begin{tabular}{llcc}
+\toprule
+Contam. & Estimator & Rel.\ Eff. & SRS MSE \\
+\midrule
+5\% & Sample Mean & 1.045 & 1.386 \\
+& Trimmed Mean & 0.962 & 0.111 \\
+& Huber M & 0.949 & 0.095 \\
+& Fast MCD & 0.985 & 0.219 \\
+\midrule
+10\% & Sample Mean & 0.992 & 4.584 \\
+& Trimmed Mean & 1.112 & 0.230 \\
+& Huber M & 0.983 & 0.150 \\
+& Fast MCD & 0.922 & 0.203 \\
+\midrule
+20\% & Sample Mean & 0.984 & 16.648 \\
+& Trimmed Mean & \textbf{1.317} & 2.930 \\
+& Huber M & 1.000 & 0.438 \\
+& Fast MCD & 1.025 & 0.254 \\
+\midrule
+30\% & Sample Mean & 1.010 & 37.428 \\
+& Trimmed Mean & 1.001 & 17.884 \\
+& Huber M & 1.089 & 1.431 \\
+& Fast MCD & 1.056 & 3.735 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Estimator Performance Under Contamination ($p = 10$, 1000 replications)}
+\label{tab:contam_p10_new}
+\begin{tabular}{llcc}
+\toprule
+Contam. & Estimator & Rel.\ Eff. & SRS MSE \\
+\midrule
+5\% & Sample Mean & 1.020 & 3.372 \\
+& Trimmed Mean & 0.955 & 0.278 \\
+& Huber M & 0.946 & 0.220 \\
+& Fast MCD & 0.915 & 0.400 \\
+\midrule
+10\% & Sample Mean & 1.026 & 11.301 \\
+& Trimmed Mean & 1.078 & 0.581 \\
+& Huber M & 0.969 & 0.345 \\
+& Fast MCD & \textbf{1.347} & 0.744 \\
+\midrule
+20\% & Sample Mean & 0.992 & 42.769 \\
+& Trimmed Mean & 1.104 & 6.407 \\
+& Huber M & 1.021 & 1.001 \\
+& Fast MCD & 0.927 & 9.764 \\
+\midrule
+30\% & Sample Mean & 0.985 & 92.435 \\
+& Trimmed Mean & 1.047 & 43.560 \\
+& Huber M & 1.037 & 3.152 \\
+& Fast MCD & 0.975 & 60.543 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Estimator Performance Under Contamination ($p = 50$, 1000 replications)}
+\label{tab:contam_p50_new}
+\begin{tabular}{llcc}
+\toprule
+Contam. & Estimator & Rel.\ Eff. & SRS MSE \\
+\midrule
+5\% & Sample Mean & 1.077 & 17.770 \\
+& Trimmed Mean & 0.996 & 1.416 \\
+& Huber M & 0.960 & 1.064 \\
+& Fast MCD & 1.154 & 17.387 \\
+\midrule
+10\% & Sample Mean & 1.034 & 58.551 \\
+& Trimmed Mean & 1.082 & 2.953 \\
+& Huber M & 0.987 & 1.669 \\
+& Fast MCD & 1.072 & 59.021 \\
+\midrule
+20\% & Sample Mean & 1.026 & 212.047 \\
+& Trimmed Mean & \textbf{1.284} & 36.388 \\
+& Huber M & 0.988 & 4.728 \\
+& Fast MCD & 1.052 & 220.516 \\
+\midrule
+30\% & Sample Mean & 0.993 & 467.804 \\
+& Trimmed Mean & 1.012 & 215.605 \\
+& Huber M & 1.006 & 15.392 \\
+& Fast MCD & 1.031 & 480.266 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%==================================== paragraph
+
+\subsubsection{Design Effects Across Dimensions}
+
+Table~\ref{tab:design_effects_all} reports the relative efficiency of the trimmed mean under 10\% contamination for different $(n, m)$ configurations across the three dimensions. Two consistent patterns emerge: (i)~larger set sizes ($m = 7$) generally yield higher RE than smaller ones ($m = 3$), confirming that more ranking information improves RSS performance; and (ii)~smaller total sample sizes ($n = 30$) benefit more from RSS than larger ones ($n = 60$), consistent with the principle that RSS is most valuable when observations are expensive. At $p = 4$, the best configuration is $(n = 30, m = 7)$ with RE $= 1.384$. At $p = 10$, the same configuration achieves RE $= 1.422$. At $p = 50$, gains are more modest but still favor $m = 7$ (RE $= 1.246$).
+
+\begin{table}[htbp]
+\centering
+\caption{Design Effects: Relative Efficiency of Trimmed Mean ($\epsilon = 0.10$, $\rho = 0.9$, 1000 replications)}
+\label{tab:design_effects_all}
+\begin{tabular}{cc|ccc}
+\toprule
+$n$ & $m$ & $p = 4$ & $p = 10$ & $p = 50$ \\
+\midrule
+30 & 3 & 1.094 & 1.226 & 1.082 \\
+30 & 5 & 1.300 & 1.256 & 1.097 \\
+30 & 7 & \textbf{1.384} & \textbf{1.422} & \textbf{1.246} \\
+60 & 3 & 1.029 & 0.922 & 0.956 \\
+60 & 5 & 1.102 & 1.031 & 1.028 \\
+60 & 7 & 1.287 & 1.105 & 1.167 \\
+\bottomrule
+\end{tabular}
+\end{table}
+%=============paragraph
+
+\subsubsection{Cross-Dimensional Summary}
+
+Table~\ref{tab:cross_dim_summary} provides a unified comparison of RSS performance across dimensions at 10\% contamination with $\rho = 0.9$. The results show that RSS gains are modest in multivariate settings (RE between 0.80 and 1.09) compared to the univariate case, but remain consistently above or near 1.0 for most estimator--dimension combinations. The trimmed mean and Huber~M show the most reliable gains, while Fast~MCD exhibits more variable performance.
+
+\begin{table}[htbp]
+\centering
+\caption{Cross-Dimensional Relative Efficiency Summary ($\epsilon = 0.10$, $\rho = 0.9$, $n = 60$, $m = 5$, 1000 replications)}
+\label{tab:cross_dim_summary}
+\begin{tabular}{lcccc}
+\toprule
+Dimension & Sample Mean & Trimmed Mean & Huber M & Fast MCD \\
+\midrule
+$p = 4$ & 1.062 & 0.968 & 1.031 & 0.936 \\
+$p = 10$ & 1.017 & 0.978 & 1.001 & 0.799 \\
+$p = 50$ & 1.093 & 1.048 & 1.017 & 1.074 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The multivariate baseline tables show substantial heterogeneity. Some configurations have RE below one, whereas others show useful gains. This heterogeneity is consistent with the revised framework: multivariate ranking does not induce a universal efficiency ordering, and its value depends on the target, estimator, dimension, contamination, and ranking mechanism. The redesigned experiments will quantify these effects directly.
+
+
+
+% \section{Real Data Application}
+% \label{sec:real_data}
+\subsection{Illustrative Applications on Benchmark Datasets}\label{sec:realdata}
+To complement the simulation study and highlight the practical value of RSS, we applied the method to two well-known benchmark datasets: the IRIS botanical dataset ($n=150, p=4$) and a subset of the Wine Quality dataset ($n=300, p=4$).
+These datasets were chosen because they provide clear and interpretable auxiliary ranking variables—Mahalanobis distance for IRIS and recorded quality scores for Wine—which make it easy to see how RSS leverages side information in practice.
+For each dataset, we considered two estimators, the sample mean and the 20\% trimmed mean, and evaluated performance under 10\% contamination across varying sample sizes.
+Relative efficiency (RE), defined as $\text{Var}_{\text{SRS}}/\text{Var}_{\text{RSS}}$, was used as the primary performance measure, averaged over 100 Monte Carlo replications.
+
+%\paragraph{IRIS Dataset}
+{\bf IRIS Dataset.}
+We first evaluated RSS performance on the classic IRIS dataset ($n=150, p=4$), using Mahalanobis distance as the ranking variable.
+Subsamples of size $n=\{20,40,60\}$ with set size $m=4$ were analyzed under 10\% contamination.
+Table~\ref{tab:iris_results} shows that the trimmed mean benefited consistently from RSS, with efficiency gains of about 10\% across all sample sizes.
+The sample mean improved slightly at smaller $n$ but fell below one at $n=60$ (RE=0.684), indicating that contamination effects combined with imperfect ranking can offset RSS advantages in larger samples.
+Overall, the results suggest that RSS paired with robust estimators such as the trimmed mean yields the most reliable improvements.
+
+\begin{table}[htbp]
+\centering
+\caption{IRIS Dataset: Relative Efficiency (100 replications, 10\% contamination)}
+\label{tab:iris_results}
+\begin{tabular}{lccc}
+\hline
+Estimator & $n=20$ & $n=40$ & $n=60$ \\
+\hline
+Sample Mean   & 1.035 & 0.954 & 0.684 \\
+Trimmed Mean  & 1.121 & 1.028 & 1.126 \\
+\hline
+\end{tabular}
+\end{table}
+
+%\paragraph{Wine Quality Dataset}
+
+{\bf Wine Quality Dataset.}
+We next considered the Wine Quality dataset ($n=300, p=4$), using the recorded quality scores as auxiliary ranking information.
+Here, sample sizes $n=\{20,40,60\}$ with set size $m=4$ were tested under 10\% contamination.
+As shown in Table~\ref{tab:wine_results}, RSS produced clear efficiency gains in most scenarios.
+At smaller samples ($n=20,40$), both the sample mean and trimmed mean improved, with trimmed mean reaching a peak efficiency of RE=1.320 at $n=40$.
+At $n=60$, the sample mean continued to benefit (RE=1.254), while the trimmed mean dropped slightly below one (RE=1.120).
+This pattern suggests that the usefulness of auxiliary rankings may diminish as sample size increases, but robust estimators can still leverage RSS effectively when the ranking variable is strongly informative.
+
+\begin{table}[htbp]
+\centering
+\caption{Wine Quality Dataset: Relative Efficiency (100 replications, 10\% contamination)}
+\label{tab:wine_results}
+\begin{tabular}{lccc}
+\hline
+Estimator & $n=20$ & $n=40$ & $n=60$ \\
+\hline
+Sample Mean   & 1.264 & 1.116 & 1.254 \\
+Trimmed Mean  & 1.167 & 1.320 & 1.120 \\
+\hline
+\end{tabular}
+\end{table}
+
+%\paragraph{Cross-Dataset Takeaways}
+{\bf Cross-Dataset Takeaways.}
+Taken together, these two real-data studies show that RSS can provide meaningful efficiency gains, particularly when auxiliary ranking variables are well aligned with the data structure.
+On average, improvements were modest but consistent—about 8\% for IRIS and 17\% for Wine—demonstrating that even simple ranking schemes can translate into tangible benefits.
+At the same time, the results also underscore that RSS is not universally superior to simple random sampling: efficiency occasionally fell below one, especially at larger sample sizes or when the ranking signal weakened.
+This balanced evidence suggests that RSS is best viewed as a complementary tool that enhances robust estimators in practical settings, rather than a guaranteed substitute for random sampling.
+
+
+% \paragraph{Air Quality Dataset}
+{\bf Air Quality Dataset.}
+For $n=\{40,80,120\}$ with $m=6$, Table~\ref{tab:air_quality_results} demonstrates consistent RSS efficiency improvements across all estimators. The analysis achieved strong correlations between the Air Quality Index (AQI) ranking variable and study variables: AQI vs Ozone ($r=0.964$), AQI vs Wind ($r=-0.934$), AQI vs Temperature ($r=0.868$), and AQI vs Solar Radiation ($r=0.770$). Sample Mean estimator recorded the highest efficiency RE=1.817 at $n=40$, while maintaining substantial improvements of 55.8-60.5\% for larger sample sizes. Trimmed Mean demonstrated remarkable stability (RE=1.571-1.738), and Huber M-estimator showed consistent performance (RE=1.578-1.743). Fast MCD, while exhibiting lower relative efficiency (RE=1.135-1.432), still provided meaningful improvements over SRS. The average relative efficiency of 1.552 across all estimators represents a 55.2\% improvement in estimation precision, with efficiency gains ranging from 13.5\% to 81.7\%.
+
+\begin{table}[htbp]
+\centering
+\caption{Air Quality Dataset: Relative Efficiency Results}
+\label{tab:air_quality_results}
+\begin{tabular}{lccc}
+\hline
+Estimator & $n=40$ & $n=80$ & $n=120$ \\
+\hline
+Sample Mean & \textbf{1.817} & 1.605 & 1.558 \\
+Trimmed Mean & 1.726 & \textbf{1.738} & 1.571 \\
+Huber M & 1.743 & 1.578 & 1.585 \\
+Fast MCD & 1.432 & 1.141 & 1.135 \\
+\hline
+\textit{Average} & \textit{1.680} & \textit{1.516} & \textit{1.462} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Air Quality Dataset: Variance Comparison (SRS vs RSS)}
+\label{tab:air_quality_variance}
+\begin{tabular}{lccc}
+\hline
+Estimator & $n=40$ & $n=80$ & $n=120$ \\
+\hline
+Sample Mean & 42.402/23.336 & 18.628/11.607 & 12.260/7.871 \\
+Trimmed Mean & 43.907/25.446 & 21.162/12.175 & 12.153/7.735 \\
+Huber M & 45.496/26.106 & 19.684/12.472 & 13.365/8.431 \\
+Fast MCD & 96.740/67.563 & 42.385/37.134 & 28.343/24.967 \\
+\hline
+\multicolumn{4}{l}{\footnotesize Note: Values shown as SRS/RSS variance}
+\end{tabular}
+\end{table}
+
+The variance reduction analysis in Table~\ref{tab:air_quality_variance} reveals substantial improvements in estimation precision. Sample Mean achieved variance reductions of 45\%, 38\%, and 36\% for $n=\{40,80,120\}$ respectively. The strong correlation structure ($|r| > 0.77$ for all variables) enables effective RSS ranking, resulting in consistent efficiency gains across all sample sizes. Unlike previous studies reporting sporadic high efficiency values, these results demonstrate the reliable and theoretically sound performance of RSS with robust estimators in environmental monitoring applications.
+
+% \paragraph{Key Findings}
+{\bf Key Findings.}
+Our analysis highlights several important insights. First, RSS consistently provides modest but reliable efficiency gains when applied correctly, averaging about 8.2\% across the datasets we examined. Second, robust estimators—especially the trimmed mean—tend to benefit the most from RSS, showing steady improvements in the 10–13\% range. Third, the quality of auxiliary information plays a crucial role: for example, the Wine dataset enjoyed a strong 17\% average gain, whereas the IRIS dataset saw more modest improvements. Finally, sample size influences RSS performance, with smaller samples generally showing stronger relative efficiency gains. Overall, these findings suggest that RSS offers meaningful, practical improvements over simple random sampling, particularly in the presence of data contamination.
+
+%\paragraph{Cross-Dataset Comparison}
+{\bf Cross-Dataset Comparison.}
+Table~\ref{tab:cross_domain} provides a snapshot of the relative efficiency results across the two datasets. The Wine dataset stands out for its consistent performance, while IRIS shows more variable outcomes. The higher average RE for Wine (1.173) compared to IRIS (0.991) reinforces the importance of carefully selecting auxiliary ranking variables when implementing RSS.
+
+\begin{table}[htbp]
+\centering
+\caption{Cross-Domain Relative Efficiency Summary}
+\label{tab:cross_domain}
+\begin{tabular}{l c c c}
+\hline
+Estimator & IRIS Average & Wine Average & Overall Average \\
+\hline
+Sample Mean & 0.891 & 1.211 & 1.051 \\
+Trimmed Mean & 1.092 & 1.136 & 1.114 \\
+\hline
+Dataset Average & 0.991 & 1.173 & 1.082 \\
+\hline
+\end{tabular}
+\end{table}
+
+In short, these real-data applications show that RSS combined with robust estimators can deliver meaningful efficiency gains. The degree of improvement depends heavily on both the choice of estimator and the quality of the auxiliary ranking information, highlighting RSS as a practical and effective complement to standard random sampling approaches.
+
+\section{Conclusion}
+\label{sec:conclusion}
+This paper develops a robust RSS framework centered on an explicit imperfect-ranking mechanism. The theoretical analysis represents ranking errors through a transition matrix and derives exact finite-sample expressions for balanced RSS means under a stated doubly stochastic condition. This separates the design-level role of the ranking mechanism from the use of a scalar rank correlation as a diagnostic. The conditional robustness proposition likewise makes explicit that robustness of the base estimator does not automatically imply robustness of the complete selection-plus-estimation procedure.
+
+The new V3 simulations provide the first numerical evaluation of the adaptive RSS--SRS rule under a fully independent pilot/evaluation/reference design. Across 96 conditions with $m=5$ and $n=500$, the fixed-strategy RSS oracle occurred in 90 conditions and the SRS oracle in 6. The mean reference variance efficiency increased from approximately 1.03 at target $\rho_R=0.25$ to 1.88 at $\rho_R=0.90$, but the reference efficiency remained heterogeneous across mechanisms, contamination placement, and estimator. The adaptive pilot responded to this heterogeneity: the mean RSS selection fraction rose from 0.533 at $\rho_R=0.25$ to 0.913 at $\rho_R=0.90$, while agreement with the fixed-strategy variance oracle averaged 73.8\% across repeated pilot trials. At the condition level, the majority adaptive decision matched the ex-post oracle in 87 of 96 conditions.
+
+The paired Gaussian-versus-Laplace experiment further supports the claim that a scalar rank correlation is not, by itself, a sufficient descriptor of efficiency. At closely matched realized ranking correlations, the estimated efficiency differences varied in both sign and magnitude across ranking-quality levels. The strongest inferential evidence for a mechanism effect occurred around $\rho_R=0.50$, whereas the estimator-specific bootstrap intervals at the other tested levels crossed zero. The appropriate conclusion is therefore that ranking mechanism can matter, but its quantitative effect is conditional rather than universal.
+
+Several limitations remain before the manuscript can be treated as submission-ready. The present adaptive pilot uses a variance criterion even under contamination, so an MSE-aware adaptive rule has not yet been established. The pilot budget of 30 replications is intentionally modest and should be stress-tested against larger pilot sizes. Monte Carlo uncertainty intervals for adaptive selection and regret need to be reported. Perfect-ranking and random-ranking controls, additional seeds, and larger fixed-strategy reference runs are still required for final validation. The multivariate simulation and benchmark-data sections currently contain exploratory results produced under earlier protocols; they should either be fully rerun under the present framework or clearly separated from the primary evidence.
+
+On the theoretical side, the transition-matrix formulation should be extended beyond the doubly stochastic sufficient condition for unbiasedness, and estimator-specific results are still needed if the paper is to claim finite-sample breakdown preservation or asymptotic efficiency for specific robust estimators. A useful next step is an explicit finite-pilot selection theorem that bounds the probability of choosing the inferior design as a function of the variance gap and pilot size. Such a result would connect the adaptive procedure to the design-based theory and make the decision rule more than an empirical heuristic.
+
+The resulting framework should therefore be read as a conditional theory-plus-evidence program rather than as a universal statement that RSS dominates SRS. Its main message is that ranking quality, ranking mechanism, contamination placement, and estimator choice jointly determine whether RSS is useful, and that an adaptive fallback to SRS can make this dependence operational.
+
+\section*{Funding}
+No funding was received for conducting this study.
+
+\section*{Competing Interests}
+The authors declare that they have no competing interests.
+
+
+%\section{BibTeX}\label{bibtex}
+
+%We encourage you to use BibTeX. If you have, please feel free to use the
+%package natbib with any bibliography style you're comfortable with. The
+%.bst file agsm has been included here for your convenience.
+
+
+\bibliography{bibliography.bib}
+
+
+\end{document}

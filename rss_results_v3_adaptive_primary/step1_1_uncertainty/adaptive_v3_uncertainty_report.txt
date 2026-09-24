@@ -1,0 +1,50 @@
+STEP 1.1 — V3 ADAPTIVE MONTE-CARLO UNCERTAINTY ANALYSIS
+==============================================================================
+
+Adaptive directory: /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary
+Paired directory:   /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_paired_primary
+Bootstrap B:        10000
+Bootstrap seed:     20260915
+Confidence level:   95%
+
+INPUT FILES
+------------------------------------------------------------------------------
+Decision file:      /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_decisions.csv
+Reference file:     /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_reference_replicates.csv
+Adaptive summary:   /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3.csv
+Reference risks:    /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_reference_risks.csv
+Calibration:        /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/calibration_v3.csv
+Adaptive trial file: /home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/adaptive_v3_trial_results.csv
+
+DESIGN CHECK
+------------------------------------------------------------------------------
+Decision conditions: 96 (expected 96)
+Reference rows:      192000 (expected 192000)
+
+OVERALL RESULTS
+------------------------------------------------------------------------------
+Mean RSS selection fraction: 0.731198
+Median RSS selection fraction: 0.702500
+Mean oracle agreement: 0.726406
+Mean reference RE: 1.387270
+Median reference RE: 1.261115
+Reference RE range: 0.928939 -- 2.200608
+
+UNCERTAINTY METHOD
+------------------------------------------------------------------------------
+RSS/SRS reference variance and MSE: nonparametric bootstrap over the 2,000 reference replicates within each condition.
+Reference RE: paired nonparametric bootstrap, preserving the RSS/SRS pairing within each reference replicate.
+RSS selection fraction: Wilson 95% interval from the 200 adaptive decisions.
+Variance-oracle agreement: Wilson 95% interval from the 200 adaptive decisions.
+
+ADAPTIVE RISK LIMITATION
+------------------------------------------------------------------------------
+Trial-level file detected: adaptive_v3_trial_results.csv
+Conditions with adaptive variance CI: 96
+Conditions with adaptive MSE CI: 96
+
+OUTPUT FILES
+------------------------------------------------------------------------------
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_1_uncertainty/adaptive_v3_uncertainty_by_condition.csv
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_1_uncertainty/adaptive_v3_uncertainty_summary.csv
+/home/jaafar/Desktop/LTS_RSS/Tex_gpt/rss_results_v3_adaptive_primary/step1_1_uncertainty/adaptive_v3_uncertainty_report.txt
