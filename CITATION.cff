@@ -19,3 +19,24 @@ keywords:
   - "Adaptive Sampling"
   - "Transition Matrix"
   - "Robust Estimation"
+=======
+title: "Ranked Set Sampling under Imperfect Ranking: Design-Based Theory, Robust Estimation, and Theory--Simulation Alignment"
+message: "If you use this software or reproducibility package, please cite the associated manuscript and the archived Zenodo release."
+type: software
+authors:
+  - family-names: Almutawa
+    given-names: Jaafar
+    affiliation: Bahrain Polytechnic
+    email: jaafar.almutawa@polytechnic.bh
+repository-code: "AlmutawaJaafar/rss-imperfect-ranking-adaptive-selection"
+license: MIT
+version: 1.1.0
+date-released: 2026-10-06
+keywords:
+  - ranked set sampling
+  - imperfect ranking
+  - robust statistics
+  - robust estimation
+  - adaptive sampling
+  - statistical estimation
+  - Monte Carlo simulation
