@@ -9,8 +9,8 @@ authors:
     email: "jaafar.almutawa@polytechnic.bh"
 repository-code: "https://github.com/AlmutawaJaafar/rss-imperfect-ranking-adaptive-selection"
 license: MIT
-version: 1.1.0
-date-released: 2026-10-06
+version: "1.1.1"
+date-released: 2026-10-15
 keywords:
   - ranked set sampling
   - imperfect ranking
