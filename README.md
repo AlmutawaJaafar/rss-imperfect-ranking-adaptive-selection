@@ -1,62 +1,60 @@
 # Ranked Set Sampling under Imperfect Ranking
 
-Reproducibility package accompanying:
+Reproducibility package for
 
-**Ranked Set Sampling under Imperfect Ranking: Design-Based Theory, Robust Estimation, and Theory--Simulation Alignment**
-
-Author: Jaafar Almutawa  
-Affiliation: Bahrain Polytechnic
-
-## Contents
-
-- `verification/` — scripts for theoretical and numerical verification and simulation experiments.
-- `data/` — data used in the real-data illustration.
-- `matrices/` — transition matrices used by the computational experiments.
-- `results/` — saved outputs from the experiments.
-- `supplementary/` — supplementary material accompanying the manuscript.
+**Ranked Set Sampling under Imperfect Ranking: An Efficiency Ordering of Ranking Mechanisms and a Cost-Aware Adaptive Design**
+Jaafar Almutawa, Department of Mathematics, Bahrain Polytechnic (submitted to *Statistical Papers*).
 
 ## Requirements
 
-Python 3.10 or newer and the packages listed in `requirements.txt`:
+Python 3.10 or newer: `pip install -r requirements.txt`
 
-```bash
-pip install -r requirements.txt
-```
+## Layout
 
-Main experiment settings: m = 5, 96 experimental conditions, 200 pilot replications, 20 pilot RSS cycles, 1,000 adaptive trials and 5,000 fixed-strategy reference replications per condition, seed = 20260915.
+| Folder | Contents |
+|---|---|
+| `verification/` | All scripts (see the two tables below) |
+| `results/` | Saved outputs of the cost-aware experiments and the real-data illustration |
+| `matrices/` | Transition matrices used by the scripts (`P_mech.npz`, `P_minRE.npy`) |
+| `data/` | Abalone data (UCI Machine Learning Repository, https://doi.org/10.24432/C55C7W) |
+| `rss_results_v3_adaptive_primary/`, `rss_results_v3_paired_primary/` | Outputs of the fixed-count reference experiment |
 
-## Reproducibility
+To run a script, copy the files it needs from `results/`, `matrices/` and `data/` into `verification/` and run it there, for example `python verify_cost_tables.py`.
 
-The scripts in `verification/` reproduce the numerical checks, simulation experiments, tables, and real-data analysis reported in the manuscript.
+## Main paper: theory checks, cost-aware adaptive design, real data
 
-The main verification scripts include:
+40,000 replications per condition, budget C = 500, set sizes 3, 5 and 7.
 
-- `verify_score_bound.py`
-- `verify_ordering.py`
-- `verify_monotone_range.py`
-- `verify_atoms.py`
-- `verify_pilot_design.py`
-- `verify_cost_adaptive.py`
-- `verify_cost_tables.py`
-- `verify_cost_adaptive_minimax.py`
-- `verify_minimax_tables.py`
-- `verify_extra_mechanisms.py`
-- `verify_iid_alignment.py`
-- `verify_extra_experiments.py`
-- `verify_extra_tables.py`
-- `verify_real_data_abalone.py`
-- `verify_review_checks.py`
+| Script | Produces or checks |
+|---|---|
+| `verify_score_bound.py` | Score-correlation bound (Theorem 2.1) and score columns of the mechanism table |
+| `verify_ordering.py` | Ordering theorem and spectrum of P P^T (writes `P_mech.npz`) |
+| `verify_monotone_range.py` | Attainable efficiency range at a fixed rank correlation |
+| `verify_atoms.py` | Necessity condition for populations with atoms |
+| `verify_pilot_design.py` | Approximately minimax pilot sizes |
+| `verify_cost_adaptive.py` | Adaptive experiment with a 20-cycle pilot (writes `cost_adaptive_results.json`) |
+| `verify_cost_tables.py` | Tables from `cost_adaptive_results.json`, including the pilot-size and budget sensitivity |
+| `verify_cost_adaptive_minimax.py` | Adaptive experiment with minimax pilots (writes `cost_adaptive_minimax.json`) |
+| `verify_minimax_tables.py` | Headline regret table from `cost_adaptive_minimax.json` |
+| `verify_extra_mechanisms.py` | Permutation and minimum-efficiency mechanisms (needs `P_minRE.npy`, `rev_exp.json`) |
+| `verify_iid_alignment.py` | Predicted versus simulated efficiency under i.i.d. contamination |
+| `verify_extra_experiments.py <part>` | Set sizes 3 and 7, lognormal, asymmetric contamination, misspecified cost (`part` = `setsize3`, `setsize7`, `lognormal`, `asym`, `misspec`) |
+| `verify_extra_tables.py` | Tables from the `extra_<part>.json` files |
+| `verify_real_data_abalone.py` | Abalone illustration (writes `abalone_results.json`) |
+| `verify_review_checks.py` | Further numerical values quoted in the text |
 
-The saved results in `results/` provide the numerical outputs used for the reported analyses.
+## Online Resource 1, Section S4: fixed-count reference experiment
 
-## Data
+96 labeled conditions, m = 5, n = 500, 5,000 fixed-strategy replications per condition, seed 20260915; details in `README_V3_REPRODUCIBILITY.md`.
 
-The `data/` directory contains the data used for the real-data illustration.
+| Script | Role |
+|---|---|
+| `rss_adaptive_experiments_v3.py` | Simulation module imported by the scripts below |
+| `run_adaptive_primary_v3.py`, `run_paired_primary_v3.py` | Simulation drivers |
+| `validate_reference_final_5000.py`, `rebuild_final_5k_adaptive_summary.py` | Reference data validation and summary |
+| `final_uncertainty_analysis_v3.py`, `analyze_adaptive_v3_final.py` | Bootstrap intervals and summaries |
+| `step14_pilot_budget_sensitivity_v3.py` | Cost-free selection rule discussed in Section S4 |
 
-## Supplementary material
+## Licence and citation
 
-`Online_Resource_1.pdf` contains supplementary theoretical and numerical material referenced by the manuscript.
-
-## Citation
-
-Please cite the associated manuscript and the archived Zenodo release of this reproducibility package.
+MIT licence. Please cite the article and this archive (see `CITATION.cff`).

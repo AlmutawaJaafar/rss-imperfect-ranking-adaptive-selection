@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Ranked Set Sampling under Imperfect Ranking: Design-Based Theory, Robust Estimation, and Theory--Simulation Alignment"
+title: "Ranked Set Sampling under Imperfect Ranking: An Efficiency Ordering of Ranking Mechanisms and a Cost-Aware Adaptive Design"
 message: "If you use this software or reproducibility package, please cite the associated manuscript and the archived Zenodo release."
 type: software
 authors:
@@ -9,8 +9,8 @@ authors:
     email: "jaafar.almutawa@polytechnic.bh"
 repository-code: "https://github.com/AlmutawaJaafar/rss-imperfect-ranking-adaptive-selection"
 license: MIT
-version: "1.1.1"
-date-released: 2026-10-15
+version: "1.1.2"
+date-released: YYYY-MM-DD
 keywords:
   - ranked set sampling
   - imperfect ranking
